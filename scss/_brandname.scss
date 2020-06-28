@@ -1,0 +1,20 @@
+//brand name
+.brand-name {
+  display: flex;
+  font-family: $text-font;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  cursor: pointer;
+
+  @media (max-width: $mobile-brakepoint) {
+    font-size: 1.5rem;
+    padding: 1rem 1rem;
+  }
+}
+.brand-tag {
+  text-align: center;
+  display: flex;
+  padding: 0rem 2rem;
+}

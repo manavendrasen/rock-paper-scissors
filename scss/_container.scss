@@ -1,0 +1,98 @@
+.container-fluid {
+  padding: 2rem 4rem;
+  @media (max-width: $mobile-brakepoint) {
+    padding: 1rem 1rem 0 1rem;
+  }
+}
+.move {
+  width: 250px;
+  height: 250px;
+  border: 2px solid #90a4ae;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  padding: 2rem;
+  // overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: $mobile-brakepoint) {
+    width: 100px;
+    height: 100px;
+    margin: 0.5rem 0;
+  }
+}
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 250px;
+  height: 100px;
+  border-radius: 10px;
+  background-color: $content-highlight;
+  margin-top: auto;
+  @media (max-width: $mobile-brakepoint) {
+    // flex-direction: column;
+    // height: 150px;
+    // width: 75px;
+    height: 60px;
+    width: 135px;
+  }
+}
+.options-comp {
+  @media (max-width: $mobile-brakepoint) {
+    padding: 0.5rem;
+    text-align: center;
+  }
+}
+.control {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  &:hover {
+    font-size: 2.5rem;
+  }
+  @media (max-width: $mobile-brakepoint) {
+    font-size: 1.2rem;
+    &:hover {
+      font-size: 1.5rem;
+    }
+  }
+}
+.player,
+.score,
+.computer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: $mobile-brakepoint) {
+    padding-bottom: 2rem;
+  }
+}
+.player,
+.score,
+.computer {
+  p {
+    text-align: center;
+  }
+}
+.score {
+  p {
+    text-align: center;
+    margin-top: 1rem;
+    @media (max-width: $mobile-brakepoint) {
+      font-size: 0.8rem;
+    }
+  }
+}
+.chosen-move {
+  font-size: 5rem;
+  @media (max-width: $mobile-brakepoint) {
+    font-size: 3rem;
+  }
+}
