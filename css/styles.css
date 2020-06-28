@@ -239,7 +239,6 @@ modal-window div:not(:last-of-type) {
   box-sizing: border-box;
   margin: 0em;
   padding: 0;
-  transition: all 0.5s ease;
 }
 
 .heading {
