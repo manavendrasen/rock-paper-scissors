@@ -117,17 +117,17 @@ function chooseRandom() {
   switch (compChoice) {
     case 0:
       compMove =
-        '<img class="icon" style="transform: scaleX(-1)" src = "/images/rock.png" alt="rock"/>';
+        '<img class="icon" style="transform: scaleX(-1)" src = "./images/rock.png" alt="rock"/>';
       compMoveInText = "rock";
       break;
     case 1:
       compMove =
-        '<img class="icon" style="transform: scaleX(-1)" src = "/images/paper.png" alt="rock"/>';
+        '<img class="icon" style="transform: scaleX(-1)" src = "./images/paper.png" alt="paper"/>';
       compMoveInText = "paper";
       break;
     case 2:
       compMove =
-        '<img class="icon" style="transform: scaleX(-1)" src = "/images/scissor.png" alt="rock"/>';
+        '<img class="icon" style="transform: scaleX(-1)" src = "./images/scissor.png" alt="scissor"/>';
       compMoveInText = "scissor";
       break;
   }
