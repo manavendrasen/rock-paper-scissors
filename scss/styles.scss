@@ -34,12 +34,26 @@ body {
   .icon {
     filter: invert(1);
   }
+  .details {
+    background-color: #37474f;
+    color: white;
+  }
+  .model-windows > div {
+    background-color: white;
+  }
 }
 .light-mode {
   background-color: $background-color-light;
   color: black;
   .icon {
     filter: none;
+  }
+  .details {
+    background-color: #eeeeee;
+    color: black;
+  }
+  .model-windows > div {
+    background-color: $background-color-dark;
   }
 }
 

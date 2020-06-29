@@ -37,7 +37,6 @@ function changeColor(event) {
 
 function makeMove(event) {
   const chosenOption = event.target;
-  console.log(chosenOption);
   const displayUser = document.querySelector(".move-user");
   const displayComp = document.querySelector(".move-comp");
 
@@ -46,7 +45,6 @@ function makeMove(event) {
   let userMove = "";
   let compMove = "";
 
-  compMove = insertToMoveComp();
   if (chosenOption.classList.contains("rock")) {
     insertToMoveUser(
       '<img class="icon" src = "./images/rock.png" alt="rock"/>'
@@ -63,35 +61,46 @@ function makeMove(event) {
     );
     userMove = "scissor";
   }
+  compMove = insertToMoveComp();
 
   [pointsOfUser, pointsOfComp] = compareMoves(userMove, compMove);
+  setTimeout(() => {
+    userPoints.innerText = pointsOfUser;
+    compPoints.innerText = pointsOfComp;
 
-  userPoints.innerText = pointsOfUser;
-  compPoints.innerText = pointsOfComp;
+    //game over screen
 
-  if (pointsOfUser == 3 || pointsOfComp == 3) {
-    scoreComp = 0;
-    scoreUser = 0;
-    document.querySelector(".modal-window").style.visibility = "visible";
-    document.querySelector(".modal-window").style.opacity = "1";
-    output = document.querySelector(".result");
-    if (pointsOfUser > pointsOfComp) {
-      output.innerText =
-        "Congratulations!! You won against the world's most powerful AI.";
-    } else {
-      output.innerText =
-        "The powerful Rock Paper Scissor AI took over out planet. Try again!";
+    if (pointsOfUser == 3 || pointsOfComp == 3) {
+      scoreComp = 0;
+      scoreUser = 0;
+      document.querySelector(".modal-window").style.visibility = "visible";
+      document.querySelector(".modal-window").style.opacity = "1";
+      let output = document.querySelector(".result");
+      let outputTitle = document.querySelector(".result-title");
+      if (pointsOfUser > pointsOfComp) {
+        outputTitle.innerText = "You Won!";
+        output.innerText = "The world is a safer place now thanks to you.";
+      } else {
+        outputTitle.innerText = "You Lost";
+        output.innerText =
+          "The powerful Rock Paper Scissor AI took over out planet. Try again!";
+      }
     }
-  }
+    updateRound();
+  }, 2000);
 }
 
+// to close the game over overlay
 function closeModel() {
   document.querySelector(".modal-window").style.visibility = "hidden";
   document.querySelector(".modal-window").style.opacity = "0";
+  const detailsDiv = document.querySelector(".details");
+  detailsDiv.innerText = "";
   userPoints.innerText = 0;
   compPoints.innerText = 0;
 }
 
+//insert a move to the user move box
 function insertToMoveUser(userMove) {
   const display = document.querySelector(".move-user");
   let userChosenMove = document.createElement("div");
@@ -100,16 +109,25 @@ function insertToMoveUser(userMove) {
   display.appendChild(userChosenMove);
 }
 
+//insert a move to the cpmputer move box
 function insertToMoveComp() {
   const display = document.querySelector(".move-comp");
   let compChosenMove = document.createElement("div");
   [ramdomlyGeneratedMove, ramdomlyGeneratedMoveInText] = chooseRandom();
   compChosenMove.innerHTML = ramdomlyGeneratedMove;
   compChosenMove.classList.add("chosen-move");
-  display.appendChild(compChosenMove);
+  let waiting = document.createElement("div");
+  waiting.innerText = "Opponent is deciding...";
+  display.appendChild(waiting);
+  setTimeout(() => {
+    display.removeChild(waiting);
+    display.appendChild(compChosenMove);
+  }, 2000);
+
   return ramdomlyGeneratedMoveInText;
 }
 
+//choose the move on the opponent
 function chooseRandom() {
   let compChoice = Math.floor(Math.random() * 3);
   let compMove = "";
@@ -134,19 +152,41 @@ function chooseRandom() {
   return [compMove, compMoveInText];
 }
 
+//calculates the points
 function compareMoves(userMove, compMove) {
   if (userMove === "rock" && compMove === "paper") {
     scoreComp++;
+    showDetails("AI");
   } else if (userMove === "rock" && compMove === "scissor") {
     scoreUser++;
+    showDetails("You");
   } else if (userMove === "paper" && compMove === "scissor") {
     scoreComp++;
+    showDetails("AI");
   } else if (userMove === "paper" && compMove === "rock") {
     scoreUser++;
+    showDetails("You");
   } else if (userMove === "scissor" && compMove === "rock") {
     scoreComp++;
+    showDetails("AI");
   } else if (userMove === "scissor" && compMove === "paper") {
     scoreUser++;
+    showDetails("You");
+  } else {
+    showDetails("Draw");
   }
+
   return [scoreUser, scoreComp];
+}
+
+function showDetails(winner) {
+  const detailsDiv = document.querySelector(".details");
+  detailsDiv.innerText = "Waiting for opponent's move";
+  setTimeout(() => {
+    if (winner === "Draw") {
+      detailsDiv.innerText = "It was a draw";
+    } else {
+      detailsDiv.innerText = winner + " won the turn!";
+    }
+  }, 2000);
 }

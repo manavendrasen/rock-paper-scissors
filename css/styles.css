@@ -30,11 +30,12 @@ h1 {
 
 @media (max-width: 758px) {
   .container-fluid {
-    padding: 2rem 3rem;
+    padding: 2rem 2rem;
   }
 }
 
 .move {
+  text-align: center;
   width: 250px;
   height: 250px;
   border: 2px solid #90a4ae;
@@ -79,8 +80,8 @@ h1 {
 
 @media (max-width: 758px) {
   .options {
-    height: 60px;
-    width: 135px;
+    height: 70px;
+    width: 145px;
   }
 }
 
@@ -150,8 +151,7 @@ h1 {
 }
 
 .score p {
-  text-align: center;
-  margin-top: 1rem;
+  font-weight: bold;
 }
 
 @media (max-width: 758px) {
@@ -170,9 +170,16 @@ h1 {
   }
 }
 
-.score .point-chart {
+.score .details-point-table {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.point-chart {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -192,9 +199,27 @@ h1 {
   background-color: white;
 }
 
+.details {
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 167px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  margin: 0.5rem;
+}
+
+@media (max-width: 758px) {
+  .details {
+    height: 60px;
+  }
+}
+
 .modal-window {
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(0, 0, 0, 0.75);
   color: black;
   top: 0;
   right: 0;
@@ -220,6 +245,7 @@ h1 {
   transform: translate(-50%, -50%);
   padding: 2em;
   background: #ffffff;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 758px) {
@@ -249,11 +275,6 @@ h1 {
   top: 0;
   width: 70px;
   text-decoration: none;
-}
-
-.modal-close:hover {
-  color: black;
-  background-color: white;
 }
 
 modal-window div:not(:last-of-type) {
@@ -299,6 +320,15 @@ body {
   filter: invert(1);
 }
 
+.dark-mode .details {
+  background-color: #37474f;
+  color: white;
+}
+
+.dark-mode .model-windows > div {
+  background-color: white;
+}
+
 .light-mode {
   background-color: #ffffff;
   color: black;
@@ -306,6 +336,15 @@ body {
 
 .light-mode .icon {
   filter: none;
+}
+
+.light-mode .details {
+  background-color: #eeeeee;
+  color: black;
+}
+
+.light-mode .model-windows > div {
+  background-color: #263238;
 }
 
 .change-color {

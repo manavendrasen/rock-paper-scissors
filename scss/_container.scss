@@ -1,10 +1,11 @@
 .container-fluid {
   padding: 2rem 4rem;
   @media (max-width: $mobile-brakepoint) {
-    padding: 2rem 3rem;
+    padding: 2rem 2rem;
   }
 }
 .move {
+  text-align: center;
   width: 250px;
   height: 250px;
   border: 2px solid #90a4ae;
@@ -39,8 +40,8 @@
   background-color: $content-highlight;
   margin-top: auto;
   @media (max-width: $mobile-brakepoint) {
-    height: 60px;
-    width: 135px;
+    height: 70px;
+    width: 145px;
   }
 }
 .options-comp {
@@ -92,23 +93,19 @@
   @media (max-width: $mobile-brakepoint) {
     padding-bottom: 2rem;
   }
-}
-.player,
-.score,
-.computer {
   p {
     text-align: center;
   }
 }
 .score {
   p {
-    text-align: center;
-    margin-top: 1rem;
+    font-weight: bold;
     @media (max-width: $mobile-brakepoint) {
       font-size: 0.8rem;
     }
   }
 }
+
 .chosen-move {
   // width: 200px;
   font-size: 5rem;
