@@ -37,6 +37,7 @@ function changeColor(event) {
 
 function makeMove(event) {
   const chosenOption = event.target;
+  console.log(chosenOption);
   const displayUser = document.querySelector(".move-user");
   const displayComp = document.querySelector(".move-comp");
 
@@ -47,13 +48,17 @@ function makeMove(event) {
 
   compMove = insertToMoveComp();
   if (chosenOption.classList.contains("rock")) {
-    insertToMoveUser("👊🏼");
+    insertToMoveUser('<img class="icon" src = "/images/rock.png" alt="rock"/>');
     userMove = "rock";
   } else if (chosenOption.classList.contains("paper")) {
-    insertToMoveUser("📄");
+    insertToMoveUser(
+      '<img class="icon" src = "/images/paper.png" alt="rock"/>'
+    );
     userMove = "paper";
   } else if (chosenOption.classList.contains("scissor")) {
-    insertToMoveUser("✂️");
+    insertToMoveUser(
+      '<img class="icon" src = "/images/scissor.png" alt="rock"/>'
+    );
     userMove = "scissor";
   }
 
@@ -88,7 +93,7 @@ function closeModel() {
 function insertToMoveUser(userMove) {
   const display = document.querySelector(".move-user");
   let userChosenMove = document.createElement("div");
-  userChosenMove.innerText = userMove;
+  userChosenMove.innerHTML = userMove;
   userChosenMove.classList.add("chosen-move");
   display.appendChild(userChosenMove);
 }
@@ -97,7 +102,7 @@ function insertToMoveComp() {
   const display = document.querySelector(".move-comp");
   let compChosenMove = document.createElement("div");
   [ramdomlyGeneratedMove, ramdomlyGeneratedMoveInText] = chooseRandom();
-  compChosenMove.innerText = ramdomlyGeneratedMove;
+  compChosenMove.innerHTML = ramdomlyGeneratedMove;
   compChosenMove.classList.add("chosen-move");
   display.appendChild(compChosenMove);
   return ramdomlyGeneratedMoveInText;
@@ -109,15 +114,18 @@ function chooseRandom() {
   let compMoveInText = "";
   switch (compChoice) {
     case 0:
-      compMove = "👊🏼";
+      compMove =
+        '<img class="icon" style="transform: scaleX(-1)" src = "/images/rock.png" alt="rock"/>';
       compMoveInText = "rock";
       break;
     case 1:
-      compMove = "📄";
+      compMove =
+        '<img class="icon" style="transform: scaleX(-1)" src = "/images/paper.png" alt="rock"/>';
       compMoveInText = "paper";
       break;
     case 2:
-      compMove = "✂️";
+      compMove =
+        '<img class="icon" style="transform: scaleX(-1)" src = "/images/scissor.png" alt="rock"/>';
       compMoveInText = "scissor";
       break;
   }
