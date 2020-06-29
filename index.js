@@ -48,16 +48,18 @@ function makeMove(event) {
 
   compMove = insertToMoveComp();
   if (chosenOption.classList.contains("rock")) {
-    insertToMoveUser('<img class="icon" src = "/images/rock.png" alt="rock"/>');
+    insertToMoveUser(
+      '<img class="icon" src = "./images/rock.png" alt="rock"/>'
+    );
     userMove = "rock";
   } else if (chosenOption.classList.contains("paper")) {
     insertToMoveUser(
-      '<img class="icon" src = "/images/paper.png" alt="rock"/>'
+      '<img class="icon" src = "./images/paper.png" alt="rock"/>'
     );
     userMove = "paper";
   } else if (chosenOption.classList.contains("scissor")) {
     insertToMoveUser(
-      '<img class="icon" src = "/images/scissor.png" alt="rock"/>'
+      '<img class="icon" src = "./images/scissor.png" alt="rock"/>'
     );
     userMove = "scissor";
   }
