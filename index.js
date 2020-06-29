@@ -83,7 +83,7 @@ function makeMove(event) {
       } else {
         outputTitle.innerText = "You Lost";
         output.innerText =
-          "The powerful Rock Paper Scissor AI took over out planet. Try again!";
+          "The powerful Rock Paper Scissor AI took over our planet. Try again!";
       }
     }
     updateRound();
