@@ -30,7 +30,7 @@ h1 {
 
 @media (max-width: 758px) {
   .container-fluid {
-    padding: 1rem 1rem 0 1rem;
+    padding: 2rem 3rem;
   }
 }
 
@@ -44,6 +44,18 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.move img {
+  width: 200px;
+}
+
+@media (max-width: 758px) {
+  .move img {
+    width: 90px;
+    height: 90px;
+  }
 }
 
 @media (max-width: 758px) {
@@ -89,16 +101,29 @@ h1 {
   font-size: 2rem;
 }
 
+.control img {
+  width: 75px;
+  transform: rotate(270deg);
+  filter: invert(1);
+  transition: 0.5s ease;
+}
+
+.control img:hover, .control img:active {
+  width: 90px;
+  filter: invert(1) sepia(20%) saturate(100) hue-rotate(90deg);
+  transform: rotate(0deg);
+}
+
 .control:hover {
   font-size: 2.5rem;
 }
 
 @media (max-width: 758px) {
-  .control {
-    font-size: 1.2rem;
+  .control img {
+    width: 40px;
   }
-  .control:hover {
-    font-size: 1.5rem;
+  .control img:hover {
+    width: 50px;
   }
 }
 
@@ -256,6 +281,7 @@ modal-window div:not(:last-of-type) {
 
 body {
   font-family: "Quicksand", sans-serif;
+  transition: 0.1s ease-in-out;
 }
 
 @media (max-width: 758px) {
@@ -269,9 +295,17 @@ body {
   color: white;
 }
 
+.dark-mode .icon {
+  filter: invert(1);
+}
+
 .light-mode {
   background-color: #ffffff;
   color: black;
+}
+
+.light-mode .icon {
+  filter: none;
 }
 
 .change-color {
