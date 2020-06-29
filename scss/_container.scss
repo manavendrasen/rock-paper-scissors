@@ -44,6 +44,10 @@
     width: 145px;
   }
 }
+.options-disabled {
+  filter: brightness(30%);
+  pointer-events: none;
+}
 .options-comp {
   @media (max-width: $mobile-brakepoint) {
     padding: 0.5rem;
@@ -52,7 +56,6 @@
 }
 .control {
   img {
-    // pointer-events: none;
     width: 75px;
     transform: rotate(270deg);
     filter: invert(1);

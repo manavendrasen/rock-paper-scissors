@@ -45,6 +45,12 @@ function makeMove(event) {
   let userMove = "";
   let compMove = "";
 
+  options.classList.add("options-disabled");
+  setTimeout(() => {
+    options.classList.remove("options-disabled");
+    // options.disabled = false;
+  }, 1000);
+
   if (chosenOption.classList.contains("rock")) {
     insertToMoveUser(
       '<img class="icon" src = "./images/rock.png" alt="rock"/>'
@@ -64,6 +70,8 @@ function makeMove(event) {
   compMove = insertToMoveComp();
 
   [pointsOfUser, pointsOfComp] = compareMoves(userMove, compMove);
+
+  //waiting 2 sec before game over screen
   setTimeout(() => {
     userPoints.innerText = pointsOfUser;
     compPoints.innerText = pointsOfComp;
@@ -86,7 +94,6 @@ function makeMove(event) {
           "The powerful Rock Paper Scissor AI took over our planet. Try again!";
       }
     }
-    updateRound();
   }, 1000);
 }
 

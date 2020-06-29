@@ -85,6 +85,11 @@ h1 {
   }
 }
 
+.options-disabled {
+  filter: brightness(30%);
+  pointer-events: none;
+}
+
 @media (max-width: 758px) {
   .options-comp {
     padding: 0.5rem;
