@@ -87,7 +87,7 @@ function makeMove(event) {
       }
     }
     updateRound();
-  }, 2000);
+  }, 1000);
 }
 
 // to close the game over overlay
@@ -122,7 +122,7 @@ function insertToMoveComp() {
   setTimeout(() => {
     display.removeChild(waiting);
     display.appendChild(compChosenMove);
-  }, 2000);
+  }, 1000);
 
   return ramdomlyGeneratedMoveInText;
 }
@@ -188,5 +188,5 @@ function showDetails(winner) {
     } else {
       detailsDiv.innerText = winner + " won the turn!";
     }
-  }, 2000);
+  }, 1000);
 }
